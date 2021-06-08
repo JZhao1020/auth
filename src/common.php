@@ -11,7 +11,11 @@ function sign($params){
         unset($params['token']);
     }
 
-    $sign = isset($params['sign']) ? $params['sign'] : '';
+    $sign = '';
+    if(isset($params['sign'])) {
+        $sign = $params['sign'];
+        unset($params['sign']);
+    }
 
     //按照键名对关联数组进行升序排序
     ksort($params);
@@ -26,7 +30,7 @@ function sign($params){
             $signStrArr[] = $key . '=' . $val;
         }
     }
-    if($token) {
+    if(is_string($token)) {
         $signStrArr[] = 'token=' . $token;
     }
 
