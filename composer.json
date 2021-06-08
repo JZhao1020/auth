@@ -1,0 +1,27 @@
+{
+    "name": "hao/auth",
+    "homepage": "https://github.com/JZhao1020/auth",
+    "description": "鉴权处理",
+    "type": "library",
+    "authors": [
+        {
+            "name": "JZ浩",
+            "email": "18816784184@163.com"
+        }
+    ],
+    "keywords": [
+        "Author"
+    ],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "auth\\": "src"
+        },
+        "files": [
+            "src/common.php"
+        ]
+    },
+    "require": {
+        "php": ">=5.6"
+    }
+}
