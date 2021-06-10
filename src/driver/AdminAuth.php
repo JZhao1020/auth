@@ -33,6 +33,6 @@ class AdminAuth
             return json();
         }
 
-        return json(401, 'Authentication error');
+        return json(505, '签名错误');
     }
 }
