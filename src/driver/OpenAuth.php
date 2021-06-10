@@ -26,11 +26,11 @@ class OpenAuth
     public function check($params){
         $app_id = isset($params['app_id']) ? $params['app_id'] : '';
         if(!$app_id){
-            return json(402, 'The app_id cannot be empty');
+            return json(501, 'app_id参数不存在');
         }
 
         if(!isset($params['sign'])){
-            return json(402, 'Parameter Incomplete');
+            return json(501, 'sign参数不存在');
         }
 
         self::$key .= 'merchant_public_key_'. $app_id;
@@ -43,6 +43,6 @@ class OpenAuth
             return json();
         }
 
-        return json(401, 'Authentication error');
+        return json(505, '签名错误');
     }
 }
