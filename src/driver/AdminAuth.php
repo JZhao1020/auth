@@ -25,7 +25,11 @@ class AdminAuth
         $user_id = isset($params['user_id']) ? $params['user_id'] : '';
         if($user_id){
             self::$key .= $user_id;
-            $params['token'] = self::$redis->get(self::$key);
+            $token = self::$redis->get(self::$key);
+            if(!$token){
+                return json(999, '请重新登录');
+            }
+            $params['token'] = $token;
         }
 
         $result = sign($params);
